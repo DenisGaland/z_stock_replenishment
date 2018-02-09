@@ -1,0 +1,65 @@
+<mvc:View controllerName="Press_Shop_Fiori11z_stock_replenishment.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified">
+	<App>
+		<pages>
+			<Page title="{i18n>title}" showHeader="false">
+				<content>
+					<HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center">
+						<items>
+							<sap.ui.core:Icon src="sap-icon://home" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
+							<Label text="Label" width="100%" id="__PLANT" design="Bold"/>
+							<HBox width="10%" id="Space6" alignContent="Start" alignItems="Center"></HBox>
+							<HBox width="100%" id="TYPEFLUX" alignContent="Start" alignItems="Center" visible="false">
+								<items>
+									<HBox width="1%" id="Space5" alignContent="Start" alignItems="Center"></HBox>
+									<sap.ui.core:Icon src="sap-icon://supplier" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon2"/>
+									<HBox width="2%" id="Space71" alignContent="Start" alignItems="Center"></HBox>
+									<Label text="" width="100%" id="TYPE" design="Bold"/>
+									<Label text="" width="100%" id="TYPECODE" visible="false"/>
+								</items>
+							</HBox>
+						</items>
+					</HBox>
+					<HBox alignItems="Center">
+						<Button id="chooseDate" icon="sap-icon://calendar" text="{i18n>change_date}" press="chooseDate"/>
+						<Label id="label_date" design="Bold"/>
+					</HBox>
+					<HBox>
+						<u:Calendar id="calendar" select="handleCalendarSelect" visible="false"/>
+					</HBox>
+					<HBox>
+						<SearchField id="searchArt" search="searchArt" visible="false"/>
+					</HBox>
+					<HBox>
+						<Table id="table1" items="{	path   : '/ItemSet',
+													sorter : { path : 'Number',
+													           descending:true
+															  }}" 
+								ariaLabelledBy="title" width="100%" visible="false" class="tableItems">
+							<columns>
+								<Column width="3.5rem">
+									<Label text="{i18n>gtin}"/>
+								</Column>
+								<Column width="4rem">
+									<Label text="{i18n>prod_name}"/>
+								</Column>
+								<Column width="2rem" class="yellow">
+									<Label text="{i18n>quantity}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{Matnr}"/>
+										<Text text="{Maktx}"/>
+										<Text text="{Menge}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
